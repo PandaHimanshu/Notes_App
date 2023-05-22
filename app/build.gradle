@@ -33,8 +33,8 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-}
+    }}
+
 
 dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
@@ -60,10 +60,12 @@ dependencies {
 
     // UI
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    //noinspection GradleDependency
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
+    //noinspection GradleDependency
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     androidTestImplementation ("androidx.test.espresso:espresso-core:$rootProject.espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'

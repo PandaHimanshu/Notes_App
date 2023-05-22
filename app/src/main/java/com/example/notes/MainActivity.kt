@@ -1,14 +1,17 @@
 package com.example.notes
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.notes.Note as Note
 
 class MainActivity : AppCompatActivity(), NoteClickDeleteInterface, NoteClickInterface {
 
@@ -41,8 +44,7 @@ class MainActivity : AppCompatActivity(), NoteClickDeleteInterface, NoteClickInt
         }
 
     override fun onDeleteIconClick(note: Note) {
-       viewModel.deleteNote(note)
-        Toast.makeText(this,"${note.noteTitle} Deleted",Toast.LENGTH_LONG).show()
+          showdialogmessage(note)
     }
 
     override fun onNoteClick(note: Note) {
@@ -54,6 +56,24 @@ class MainActivity : AppCompatActivity(), NoteClickDeleteInterface, NoteClickInt
         startActivity(intent)
         this.finish()
     }
+
+      fun showdialogmessage(note: Note) {
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("Delete Note")
+            .setMessage("Are you sure you want to delete this note?")
+            .setPositiveButton("Yes") { _, _ ->
+                // Delete the note here
+                viewModel.deleteNote(note)
+                Toast.makeText(this, "${note.noteTitle} Deleted", Toast.LENGTH_LONG).show()
+            }
+            .setNegativeButton("No") {dialog, _ ->
+                dialog.dismiss() // Dismiss the dialog
+            }
+            .create()
+
+        alertDialog.show()
+    }
+
 
 }
 
