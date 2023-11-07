@@ -6,25 +6,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#4AA7F1">
+    android:background="#2C3639">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/RVNotes"
-        tools:listitem="@layout/note_rv_item"/>
+    <!-- Add the TextView for "Notes" at the top -->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <TextView
+        android:id="@+id/Notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:paddingTop="30dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Notes"
+        android:textColor="#eee"
+        android:textSize="50sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RVNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/Notes"
+        tools:listitem="@layout/note_rv_item"
+        tools:ignore="UnknownId" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addFAB"
-        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#DCD7C9"
         android:src="@drawable/ic_add"
-        app:tint="@color/white"
-        android:backgroundTint="#0B2EF3"/>
-
-
-
+        app:tint="@color/black" />
 </RelativeLayout>

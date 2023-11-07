@@ -10,4 +10,9 @@
 
     <color name="black_shade_1">#0e2433</color>
     <color name="black_shade_2">#1C4966</color>
+    <color name="background_color">#2C3639</color>
+
+    <color name="themeColor1">#FF0000</color>
+    <color name="themeColor2">#00FF00</color>
+    <color name="themeColor3">#0000FF</color>
 </resources>
